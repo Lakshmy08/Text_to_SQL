@@ -1,0 +1,8 @@
+transformers
+torch
+mysql-connector-python
+fastapi
+uvicorn
+groq
+pymysql
+python-dotenv
