@@ -82,7 +82,7 @@ export default function App() {
               background: '#2d1b1b', border: '1px solid #5c2626', borderRadius: '8px',
               padding: '16px', color: '#ff6b6b', marginBottom: '16px'
             }}>
-              ⚠️ {error}
+               {error}
             </div>
           )}
 
