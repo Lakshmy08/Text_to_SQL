@@ -13,12 +13,12 @@ def get_schema_description():
     for table, details in SCHEMA_DICTIONARY.items():
         schema_text += f"Table: {table} (business name: {details['business_name']})\n"
 
-        # Show foreign keys so the model knows how to JOIN
+        
         if "foreign_keys" in details:
             for fk_col, ref in details["foreign_keys"].items():
                 schema_text += f"  - {fk_col} → references {ref}\n"
 
-        # ✅ Key fix: real_column_name (business_meaning)
+       
         for real_col, business_name in details["columns"].items():
             schema_text += f"  - {real_col} (meaning: {business_name})\n"
 
