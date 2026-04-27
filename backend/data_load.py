@@ -12,14 +12,14 @@ def setup_database():
 
         print("Connected to MySQL")
 
-        # Create DB
+        
         cursor.execute("CREATE DATABASE IF NOT EXISTS saas_bi_db;")
         print("Database created")
 
         cursor.execute("USE saas_bi_db;")
         print("Using database")
 
-        # Read schema.sql
+        
         with open("schema.sql", "r", encoding="utf-8") as f:
             schema_sql = f.read()
 
@@ -32,7 +32,7 @@ def setup_database():
 
         print("Schema executed")
 
-        # Read seed.sql
+       
         with open("seed_data.sql", "r", encoding="utf-8") as f:
             seed_sql = f.read()
 
