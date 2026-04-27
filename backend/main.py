@@ -9,12 +9,12 @@ app = FastAPI(title="SaaS BI API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite default port
+    allow_origins=["http://localhost:5173"], 
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# In-memory query history (resets on server restart)
+
 query_history = []
 
 
@@ -28,7 +28,7 @@ async def run_query(request: QueryRequest):
         sql = generate_sql(request.question)
         result = execute_query(sql)
 
-        # Handle DB errors returned as dict
+        
         if isinstance(result, dict) and "error" in result:
             raise HTTPException(status_code=400, detail=result["error"])
 
@@ -41,7 +41,7 @@ async def run_query(request: QueryRequest):
             "row_count": len(result) if isinstance(result, list) else 0
         }
 
-        query_history.insert(0, entry)  # newest first
+        query_history.insert(0, entry)  
 
         return entry
 
